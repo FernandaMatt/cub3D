@@ -31,7 +31,12 @@ int	handle_key_press(int keycode, t_game *game)
 	if (keycode == 100)
 		game->key.d_is_press = 1;
 	if (keycode == 109)
-		game->key.m_is_press = 1;
+	{
+		if (game->key.m_is_press)
+			game->key.m_is_press = 0;
+		else
+			game->key.m_is_press = 1;
+	}	
 	return (0);
 }
 
@@ -51,8 +56,6 @@ int	handle_key_release(int keycode, t_game *game)
 		game->key.ra_is_press = 0;
 	if (keycode == 65361)
 		game->key.la_is_press = 0;
-	if (keycode == 109)
-		game->key.m_is_press = 0;
 	return (0);
 }
 

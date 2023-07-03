@@ -52,6 +52,8 @@ int		is_valid_up_down(char *line_updown, int pos);
 // Transform_map
 void	transform_map_int(t_game *game);
 void	transpose_matrix(t_game *game);
+void	free_matrix_int(int **mtx, int n_rows);
+int     **malloc_matrix(int height, int width);
 
 // Ray casting
 void	render_map3d(t_game *game);
