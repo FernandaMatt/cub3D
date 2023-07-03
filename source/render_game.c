@@ -6,7 +6,7 @@
 /*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 09:37:54 by fcaetano          #+#    #+#             */
-/*   Updated: 2023/07/03 12:29:49 by fcaetano         ###   ########.fr       */
+/*   Updated: 2023/07/03 13:58:18 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ int	loop_hook(t_game *game)
 
 void	render_game(t_game *game)
 {
-	mlx_clear_window(game->img.ptr, game->img.win);
 	transpose_matrix(game);
 	render_map3d(game);
 	mlx_hook(game->img.win, 2, 1L << 0, handle_key_press, game);
