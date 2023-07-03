@@ -3,46 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   common_libft.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gustavosousa <gustavosousa@student.42.f    +#+  +:+       +#+        */
+/*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:45:32 by gusousa           #+#    #+#             */
-/*   Updated: 2023/06/07 12:35:50 by gustavosous      ###   ########.fr       */
+/*   Updated: 2023/07/03 12:41:53 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-void	free_matrix(char **matrix)
-{
-	int	i;
-
-	if (matrix)
-	{
-		i = -1;
-		while (matrix[++i])
-			free(matrix[i]);
-		free(matrix);
-	}
-}
-
-void	free_matrix_int(t_game *game)
-{
-	int	i;
-
-	if (game->map.mtx_int)
-	{
-		i = -1;
-		while (++i < game->map.rows)
-			free(game->map.mtx_int[i]);
-		free(game->map.mtx_int);
-	}
-}
-
-/* Receive a matrix
-** Receive a line( non allocaded).
-** If matrix is NULL, create a matrix the new_line.
-** If matrix already exist, realloc it + 1 size and add the new_line.
-*/
 void	update_matrix(char ***matrix, char *new_line)
 {
 	char	**new_matrix;
@@ -65,15 +34,11 @@ void	update_matrix(char ***matrix, char *new_line)
 			new_matrix[i] = ft_strdup((*matrix)[i]);
 		new_matrix[i] = ft_strdup(new_line);
 		new_matrix[i + 1] = NULL;
-		free_matrix(*matrix);
+		free_matrix_chr(*matrix);
 		*matrix = new_matrix;
 	}
 }
 
-/*
-** Split the string s using the char sep as separator.
-** Count the number of words.
-*/
 int	ft_count_words(char const *s, char sep)
 {
 	char	**mtx;
@@ -83,27 +48,48 @@ int	ft_count_words(char const *s, char sep)
 	mtx = ft_split(s, sep);
 	while (mtx[count])
 		count++;
-	free_matrix(mtx);
+	free_matrix_chr(mtx);
 	return (count);
 }
 
-int	is_empty_line(char *line)
+int	**malloc_ma(int height, int width)
 {
+	int	**mtx;
 	int	i;
 
-	i = 0;
-	while (line[i])
+	i = -1;
+	mtx = malloc(sizeof(int *) * height);
+	if (!mtx)
+		return (NULL);
+	while (++i < height)
 	{
-		if (line[i] != ' ' && line[i] != '\n' && line[i] != '\t')
-			return (0);
-		i++;
+		mtx[i] = malloc(sizeof(int) * width);
+		if (!mtx[i])
+			return (NULL);
 	}
-	return (1);
+	return (mtx);
 }
 
-int	is_space(char c)
+void	transpose_matrix(t_game *game)
 {
-	if (c == ' ' || c == '\t')
-		return (1);
-	return (0);
+	int	**mtx;
+	int	tmp;
+	int	i;
+	int	j;
+
+	i = -1;
+	mtx = malloc_ma(game->map.rows, game->map.cols);
+	tmp = game->map.rows;
+	while (++i < game->map.rows)
+	{
+		j = -1;
+		while (++j < game->map.cols)
+		{
+			mtx[j][i] = game->map.mtx_int[i][j];
+		}
+	}
+	free_matrix_int(game->map.mtx_int, game->map.rows);
+	game->map.cols = game->map.rows;
+	game->map.rows = tmp;
+	game->map.mtx_int = mtx;
 }

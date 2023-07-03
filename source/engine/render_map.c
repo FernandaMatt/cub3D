@@ -6,7 +6,7 @@
 /*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 09:48:40 by fcaetano          #+#    #+#             */
-/*   Updated: 2023/06/29 16:56:58 by fcaetano         ###   ########.fr       */
+/*   Updated: 2023/07/03 12:44:23 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	render_map2d(t_game *game, int square_sz)
 {
 	int	i;
 	int	j;
-	
+
 	i = -1;
 	while (++i < game->map.rows)
 	{

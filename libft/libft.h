@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gustavosousa <gustavosousa@student.42.f    +#+  +:+       +#+        */
+/*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 17:19:47 by gusousa           #+#    #+#             */
-/*   Updated: 2023/06/22 17:17:45 by gustavosous      ###   ########.fr       */
+/*   Updated: 2023/07/03 12:41:48 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,18 @@ void		ft_lstclear(t_list **lst, void (*del)(void *));
 #  define BUFFER_SIZE 42
 # endif
 
-char	*get_nl(int fd);
-void	move_remains(char *str, int pos);
-int		ft_strlen_gnl(char *str, int *end_flag);
-char	*ft_calloc_gnl(size_t n_elements, size_t size);
-char	*ft_strdup_gnl(char *src, int len_stash);
-void	ft_strlcpy_gnl(char *dst, char *src, int size);
+char		*get_nl(int fd);
+void		move_remains(char *str, int pos);
+int			ft_strlen_gnl(char *str, int *end_flag);
+char		*ft_calloc_gnl(size_t n_elements, size_t size);
+char		*ft_strdup_gnl(char *src, int len_stash);
+void		ft_strlcpy_gnl(char *dst, char *src, int size);
+
+/***********************	EXTRA_FTS		*****************************/
+
+void		free_matrix_chr(char **matrix);
+void		free_matrix_int(int **mtx, int n_rows);
+int			is_empty_line(char *line);
+int			is_space(char c);
 
 #endif
