@@ -14,16 +14,33 @@
 
 int	is_valid_number(char **mtx, int r, int g, int b)
 {
+	char *rgb;
+
 	if (mtx[0][0] == '-'
 		|| mtx[1][0] == '-'
 		|| mtx [2][0] == '-')
 		return (0);
-	if (ft_strncmp(mtx[0], ft_itoa(r), ft_strlen(mtx[0])))
+	rgb = ft_itoa(r);
+	if (ft_strncmp(mtx[0], rgb, ft_strlen(mtx[0])))
+	{
+		free(rgb);
 		return (0);
-	if (ft_strncmp(mtx[1], ft_itoa(g), ft_strlen(mtx[1])))
+	}
+	free(rgb);
+	rgb = ft_itoa(g);
+	if (ft_strncmp(mtx[1], rgb, ft_strlen(mtx[1])))
+	{
+		free(rgb);
 		return (0);
-	if (ft_strncmp(mtx[2], ft_itoa(b), ft_strlen(mtx[2])))
+	}
+	free(rgb);
+	rgb = ft_itoa(b);
+	if (ft_strncmp(mtx[2], rgb, ft_strlen(mtx[2])))
+	{
+		free(rgb);
 		return (0);
+	}
+	free(rgb);
 	return (1);
 }
 

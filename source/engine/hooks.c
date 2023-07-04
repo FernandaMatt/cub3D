@@ -87,6 +87,11 @@ void	turn_right(t_player *player)
 int	close_window(t_game *game)
 {
 	if (game->img.win)
+	{
+	//	mlx_destroy_image(game->img.ptr, game->img.win);
 		mlx_destroy_window(game->img.ptr, game->img.win);
+		free_matrix_int(game->map.mtx_int, game->map.rows);
+	//	free_matrix_chr(game->map.mtx);
+	}
 	exit(0);
 }
