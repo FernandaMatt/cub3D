@@ -101,6 +101,4 @@ void	render_player(t_img *img, t_player player, int l)
 	player.diry_pxl = (player.y + player.dir_y) * SIZE_MMAP;
 	draw_line (img, (int [2]){player.x * SIZE_MMAP, player.y * SIZE_MMAP},
 		(int [2]){player.dirx_pxl, player.diry_pxl}, 0x0000FF);
-	pixel_put(img, plan_xn, plan_yn, 0x0000FF);
-	pixel_put(img, plan_xp, plan_yp, 0x0000FF);
 }
