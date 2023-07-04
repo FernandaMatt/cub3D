@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gustavosousa <gustavosousa@student.42.f    +#+  +:+       +#+        */
+/*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:45:32 by gusousa           #+#    #+#             */
-/*   Updated: 2023/06/22 19:23:43 by gustavosous      ###   ########.fr       */
+/*   Updated: 2023/07/03 11:51:48 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	free_map(t_game *game)
 {
 	if (game && game->map.mtx)
-		free_matrix(game->map.mtx);
+		free_matrix_chr(game->map.mtx);
 }
 
 void	exit_game(char *message, t_game *game)

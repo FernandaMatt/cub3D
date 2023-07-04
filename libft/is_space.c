@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   constants.h                                        :+:      :+:    :+:   */
+/*   is_space.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 14:07:15 by fcaetano          #+#    #+#             */
-/*   Updated: 2023/07/03 14:07:18 by fcaetano         ###   ########.fr       */
+/*   Created: 2023/07/03 12:42:23 by fcaetano          #+#    #+#             */
+/*   Updated: 2023/07/03 14:04:42 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONSTANTS_H
-# define CONSTANTS_H
-
-# define SIZE_MMAP 11
-# define LENGHT 640
-# define HEIGHT 480
-# define TEXTURE_WIDTH 64
-# define TEXTURE_HEIGHT 64
-
-#endif
+int	is_space(char c)
+{
+	if (c == ' ' || c == '\t')
+		return (1);
+	return (0);
+}

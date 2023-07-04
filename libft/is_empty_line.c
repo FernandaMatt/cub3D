@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   constants.h                                        :+:      :+:    :+:   */
+/*   is_empty_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 14:07:15 by fcaetano          #+#    #+#             */
-/*   Updated: 2023/07/03 14:07:18 by fcaetano         ###   ########.fr       */
+/*   Created: 2023/07/03 12:32:02 by fcaetano          #+#    #+#             */
+/*   Updated: 2023/07/03 14:04:56 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONSTANTS_H
-# define CONSTANTS_H
+int	is_empty_line(char *line)
+{
+	int	i;
 
-# define SIZE_MMAP 11
-# define LENGHT 640
-# define HEIGHT 480
-# define TEXTURE_WIDTH 64
-# define TEXTURE_HEIGHT 64
-
-#endif
+	i = 0;
+	while (line[i])
+	{
+		if (line[i] != ' ' && line[i] != '\n' && line[i] != '\t')
+			return (0);
+		i++;
+	}
+	return (1);
+}
