@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkers.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gustavosousa <gustavosousa@student.42.f    +#+  +:+       +#+        */
+/*   By: parnaldo <parnaldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:45:32 by gusousa           #+#    #+#             */
-/*   Updated: 2023/06/24 11:50:51 by gde-jesu         ###   ########.fr       */
+/*   Updated: 2023/07/05 19:21:14 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,19 @@ int	is_color(char *line)
 {
 	if (ft_count_words(line, ',') != 3)
 		return (0);
+	return (1);
+}
+
+int	check_color(char *str1, int nbr)
+{
+	char	*color_str;
+
+	color_str = ft_itoa(nbr);
+	if (ft_strncmp(str1, color_str, ft_strlen(str1)))
+	{
+		free(color_str);
+		return (0);
+	}
+	free(color_str);
 	return (1);
 }

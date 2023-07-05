@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_color.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parnaldo <parnaldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:45:32 by gusousa           #+#    #+#             */
-/*   Updated: 2023/07/03 11:51:48 by fcaetano         ###   ########.fr       */
+/*   Updated: 2023/07/05 19:20:09 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,14 @@
 
 int	is_valid_number(char **mtx, int r, int g, int b)
 {
-	char *rgb;
-
 	if (mtx[0][0] == '-'
 		|| mtx[1][0] == '-'
 		|| mtx [2][0] == '-')
 		return (0);
-	rgb = ft_itoa(r);
-	if (ft_strncmp(mtx[0], rgb, ft_strlen(mtx[0])))
-	{
-		free(rgb);
+	if (!check_color(mtx[0], r)
+		|| !check_color(mtx[1], g)
+		|| !check_color(mtx[2], b))
 		return (0);
-	}
-	free(rgb);
-	rgb = ft_itoa(g);
-	if (ft_strncmp(mtx[1], rgb, ft_strlen(mtx[1])))
-	{
-		free(rgb);
-		return (0);
-	}
-	free(rgb);
-	rgb = ft_itoa(b);
-	if (ft_strncmp(mtx[2], rgb, ft_strlen(mtx[2])))
-	{
-		free(rgb);
-		return (0);
-	}
-	free(rgb);
 	return (1);
 }
 

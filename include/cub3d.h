@@ -94,5 +94,7 @@ t_img	def_tex(t_game *game, t_ray_info *ray);
 
 // Utils
 void	print_mtx(t_game *game);
+void free_texture(t_texture texture);
+int    check_color(char *str1, int nbr);
 
 #endif

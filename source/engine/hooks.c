@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parnaldo <parnaldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 09:42:07 by fcaetano          #+#    #+#             */
-/*   Updated: 2023/07/05 11:39:23 by parnaldo         ###   ########.fr       */
+/*   Updated: 2023/07/05 19:16:19 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,25 +82,4 @@ void	turn_right(t_player *player)
 		- player->cam_plane_dir_y * sin(player->rot_speed);
 	player->cam_plane_dir_y = old_x * sin(player->rot_speed)
 		+ player->cam_plane_dir_y * cos(player->rot_speed);
-}
-
-void free_texture(t_texture texture)
-{
-	mlx_destroy_image(texture.north.ptr, texture.north.img);
-	mlx_destroy_image(texture.south.ptr, texture.south.img);
-	mlx_destroy_image(texture.east.ptr, texture.east.img);
-	mlx_destroy_image(texture.west.ptr, texture.west.img);
-}
-
-int	close_window(t_game *game)
-{
-	free_texture(game->texture);
-	if (game->img.win)
-		mlx_destroy_window(game->img.ptr, game->img.win);
-	if (game->map.mtx_int)	
-		free_matrix_int(game->map.mtx_int, game->map.rows);
-	mlx_destroy_display(game->img.ptr);
-	free(game->img.ptr);
-	//free(game);
-	exit(0);
 }

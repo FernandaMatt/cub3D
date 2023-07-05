@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   common_libft.c                                     :+:      :+:    :+:   */
+/*   aux.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parnaldo <parnaldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:45:32 by gusousa           #+#    #+#             */
-/*   Updated: 2023/07/03 12:41:53 by fcaetano         ###   ########.fr       */
+/*   Updated: 2023/07/05 19:11:06 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,32 +70,32 @@ int	**malloc_ma(int height, int width)
 	return (mtx);
 }
 
-void    ft_swap(int *a, int *b)
+void	ft_swap(int *a, int *b)
 {
-    int tmp;
+	int	tmp;
 
-    tmp = *a;
-    *a = *b;
-    *b = tmp;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
 
-void transpose_matrix(t_game *game) 
+void	transpose_matrix(t_game *game)
 {
-    int **mtx;
-    int i;
-    int j;
+	int	**mtx;
+	int	i;
+	int	j;
 
-    mtx = malloc_matrix(game->map.cols, game->map.rows);
-    i = -1;
-    while (++i < game->map.rows) 
-    {
-        j = -1;
-        while (++j < game->map.cols) 
-        {
-            mtx[j][i] = game->map.mtx_int[i][j];
-        }
-    }
-    free_matrix_int(game->map.mtx_int, game->map.rows);
-    game->map.mtx_int = mtx;
-    ft_swap(&game->map.rows, &game->map.cols);
+	mtx = malloc_matrix(game->map.cols, game->map.rows);
+	i = -1;
+	while (++i < game->map.rows)
+	{
+		j = -1;
+		while (++j < game->map.cols)
+		{
+			mtx[j][i] = game->map.mtx_int[i][j];
+		}
+	}
+	free_matrix_int(game->map.mtx_int, game->map.rows);
+	game->map.mtx_int = mtx;
+	ft_swap(&game->map.rows, &game->map.cols);
 }

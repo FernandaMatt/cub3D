@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_game.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parnaldo <parnaldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 09:37:54 by fcaetano          #+#    #+#             */
-/*   Updated: 2023/07/03 13:58:18 by fcaetano         ###   ########.fr       */
+/*   Updated: 2023/07/05 19:15:15 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,23 @@ int	loop_hook(t_game *game)
 	return (0);
 }
 
+void	create_window_mlx(t_game *game)
+{
+	game->img.win = mlx_new_window(game->img.ptr, LENGHT, HEIGHT, "cub3D");
+	if (game->img.win == NULL)
+		exit_game("error: mlx window failed", game);
+	game->img.img = mlx_new_image(game->img.ptr, LENGHT, HEIGHT);
+	if (game->img.img == NULL)
+		exit_game("error: mlx image failed", game);
+	game->img.addr = mlx_get_data_addr(game->img.img, &game->img.bpp,
+			&game->img.line_len, &game->img.endian);
+	if (game->img.addr == NULL)
+		exit_game("error: mlx address failed", game);
+}
+
 void	render_game(t_game *game)
 {
+	create_window_mlx(game);
 	transpose_matrix(game);
 	render_map3d(game);
 	mlx_hook(game->img.win, 2, 1L << 0, handle_key_press, game);
