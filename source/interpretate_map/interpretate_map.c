@@ -44,6 +44,7 @@ void	interpretate_line(t_game *game, char *line_pre)
 		get_max_col(game, line);
 	}
 	free(line);
+	free(line2);
 }
 
 /*
