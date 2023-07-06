@@ -25,7 +25,7 @@ VALIDATE_MAP		:=	validate_map	validate_player	validate_border	validate_char	\
 ENGINE				:=	draw  calculations	calculations_2	hooks	\
 						render_map	bresenham	render	hooks2
 ENGINE_BONUS		:=	draw  calculations	calculations_2	hooks	\
-						render_map	render_map_bonus bresenham	render	hooks
+						render_map	render_map_bonus bresenham	render	hooks2
 
 SRC		:=	$(MAIN)	\
 			$(addprefix interpretate_map/, $(INTERPRETATE_MAP))	\
@@ -118,6 +118,7 @@ clean:
 
 fclean:	clean
 	@rm -rf $(NAME)
+	@rm -rf $(NAME_BONUS)
 	@make -C $(LIBDIR) fclean
 	@echo "I deleted even the deletion"
 
