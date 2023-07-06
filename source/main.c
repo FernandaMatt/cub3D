@@ -6,7 +6,7 @@
 /*   By: parnaldo <parnaldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:45:32 by gusousa           #+#    #+#             */
-/*   Updated: 2023/07/05 19:12:51 by parnaldo         ###   ########.fr       */
+/*   Updated: 2023/07/06 14:35:32 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	main(int argc, char **argv)
 
 	if (argc == 2)
 	{
+		if (!check_map_extension(argv[1]))
+				ft_putendl_fd("Error map", 1);
 		setup(&game);
 		interpretate_map(&game, argv[1]);
 		validate_map(&game);

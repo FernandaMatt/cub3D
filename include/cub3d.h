@@ -48,6 +48,7 @@ int		validate_left(t_game *game);
 int		validate_right(t_game *game);
 void	validate_middle(t_game *game);
 int		is_valid_up_down(char *line_updown, int pos);
+int     check_map_extension(char* file_path);
 
 // Transform_map
 void	transform_map_int(t_game *game);
