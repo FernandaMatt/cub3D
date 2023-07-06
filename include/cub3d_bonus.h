@@ -59,6 +59,10 @@ int     **malloc_matrix(int height, int width);
 void	render_map3d(t_game *game);
 void	raycast(t_game *game);
 
+// Map 2D
+void	render_map2d(t_game *game, int square_sz);
+void	render_player(t_img *img, t_player player, int l);
+
 // Movement
 void	walk_backward(t_game *game);
 void	turn_right(t_player *player);

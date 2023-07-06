@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_game.c                                      :+:      :+:    :+:   */
+/*   render_game_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: parnaldo <parnaldo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 09:37:54 by fcaetano          #+#    #+#             */
-/*   Updated: 2023/07/06 13:50:39 by parnaldo         ###   ########.fr       */
+/*   Updated: 2023/07/06 13:46:12 by parnaldo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../include/cub3d_bonus.h"
 
 int	handle_key_press(int keycode, t_game *game)
 {
@@ -30,6 +30,13 @@ int	handle_key_press(int keycode, t_game *game)
 		game->key.a_is_press = 1;
 	if (keycode == 100)
 		game->key.d_is_press = 1;
+	if (keycode == 109)
+	{
+		if (game->key.m_is_press)
+			game->key.m_is_press = 0;
+		else
+			game->key.m_is_press = 1;
+	}	
 	return (0);
 }
 
@@ -71,6 +78,11 @@ int	loop_hook(t_game *game)
 			turn_left (&game->player);
 	}
 	render_map3d(game);
+	if (game->key.m_is_press)
+	{
+		render_map2d(game, SIZE_MMAP);
+		render_player(&game->img, game->player, 9);
+	}
 	mlx_put_image_to_window(game->img.ptr, game->img.win,
 		game->img.img, 0, 0);
 	return (0);

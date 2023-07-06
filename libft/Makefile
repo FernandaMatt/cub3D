@@ -57,7 +57,6 @@ $(NAME): $(OBJ)
 
 $(OBJDIR)%.o : $(SRCDIR)%.c
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "objects created 😉 ->$(MAGENTA) $@$(WHITE)"
 
 clean:
 	$(RM) $(OBJDIR)
