@@ -1,7 +1,7 @@
 NO textures/north_brick.xpm
 SO textures/south_brick.xpm
 WE textures/west_brick.xpm
-EA t   extures/east_brick.xpm
+EA textures/east_brick.xpm
 F 216,191,216
 C 25,25,112
 
