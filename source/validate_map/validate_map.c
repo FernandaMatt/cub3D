@@ -22,7 +22,10 @@ void	validate_map(t_game *game)
 
 int	check_map_extension(char* file_path)
 {
-	if (file_path && ft_strnstr(file_path, ".cub", ft_strlen(file_path)))
+	int	ext_file_pos;
+
+	ext_file_pos = (int)ft_strlen(file_path) - 4;
+	if (file_path && !ft_strncmp(&file_path[ext_file_pos], ".cub", 5))
 		return (1);
 	return (0);
 }

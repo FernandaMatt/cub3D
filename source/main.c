@@ -36,14 +36,18 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		if (!check_map_extension(argv[1]))
-				ft_putendl_fd("Error map", 1);
-		setup(&game);
-		interpretate_map(&game, argv[1]);
-		validate_map(&game);
-		transform_map_int(&game);
-		render_game(&game);
-		exit_game(NULL, &game);
+				ft_putendl_fd("Error: map file extension. `.cub´ expected", 1);
+		else
+		{
+			setup(&game);
+			interpretate_map(&game, argv[1]);
+			validate_map(&game);
+			transform_map_int(&game);
+			render_game(&game);
+			exit_game(NULL, &game);
+		}
 	}
-	ft_putendl_fd("Usage: ./cub3D <map.cub>", 1);
+	else
+		ft_putendl_fd("Usage: ./cub3D <map.cub>", 1);
 	return (1);
 }
