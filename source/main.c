@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		if (!check_map_extension(argv[1]))
-				ft_putendl_fd("Error: map file extension. `.cub´ expected", 1);
+			ft_putendl_fd("Error: map file extension. `.cub´ expected", 1);
 		else
 		{
 			setup(&game);

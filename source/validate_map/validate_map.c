@@ -20,7 +20,7 @@ void	validate_map(t_game *game)
 	validate_middle(game);
 }
 
-int	check_map_extension(char* file_path)
+int	check_map_extension(char *file_path)
 {
 	int	ext_file_pos;
 
