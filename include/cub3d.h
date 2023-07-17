@@ -6,7 +6,7 @@
 /*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 09:16:05 by fcaetano          #+#    #+#             */
-/*   Updated: 2023/07/17 09:26:46 by fcaetano         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:24:27 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int				close_window(t_game *game);
 // interpretate_map
 void			interpretate_map(t_game *game, char *path_name);
 int				has_all_information(t_game *game);
-int				open_file(char *file_path);
+int				open_file(char *file_path, t_game *game);
 
 //Texture
 int				is_xpm(char *line);

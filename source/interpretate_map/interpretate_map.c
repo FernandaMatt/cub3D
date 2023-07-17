@@ -6,7 +6,7 @@
 /*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:45:32 by gusousa           #+#    #+#             */
-/*   Updated: 2023/07/17 10:48:39 by fcaetano         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:19:51 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	interpretate_map(t_game *game, char *file_path)
 	int		status;
 
 	status = 1;
-	fd = open_file(file_path);
+	fd = open_file(file_path, game);
 	line = get_nl(fd);
 	while (line)
 	{
