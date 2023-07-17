@@ -55,14 +55,6 @@ LIBLIB		:=	$(LIBDIR)libft.a
 ####	defining OS name variable	####
 UNAME := $(shell uname)
 
-#----------------- mlx library  for mac ---------------
-ifeq ($(UNAME), Darwin)
-	MLX		:= ./miniLibX/
-	MLX_LIB	:= $(addprefix $(MLX), libmlx.a	)
-	MLX_INC	:= -I ./miniLibX
-	MLX_LNK	:= -L ./miniLibX -l mlx -framework OpenGL -framework AppKit
-endif
-
 #----------------- mlx library  for linux ---------------
 ifeq ($(UNAME), Linux)
 	MLX		:= ./mlx_linux
@@ -113,6 +105,7 @@ $(NAME_BONUS): $(OBJ_BONUS)
 
 clean:
 	@rm -rf $(OBJDIR)
+	@make -C $(MLX) clean
 	@make -C $(LIBDIR) clean
 	@echo "I deleted everything"
 
