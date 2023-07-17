@@ -2,8 +2,8 @@ NO textures/north_plank.xpm
 SO textures/south_plank.xpm
 WE textures/west_plank.xpm
 EA textures/east_plank.xpm
-F 255,0,0
-C 0,0,255
+F 238,232,170
+C 128,128,0
 
 111111111
 110N0111
