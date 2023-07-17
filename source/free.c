@@ -6,7 +6,7 @@
 /*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 19:13:55 by parnaldo          #+#    #+#             */
-/*   Updated: 2023/07/17 17:13:36 by fcaetano         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:36:36 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ int	close_window(t_game *game)
 void	exit_game(char *message, t_game *game)
 {
 	if (message)
+	{
+		ft_putendl_fd("Error.", 2);
 		ft_putendl_fd(message, 2);
+	}
 	if (game)
 	{
 		free_map(game);

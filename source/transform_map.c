@@ -6,7 +6,7 @@
 /*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:45:32 by gusousa           #+#    #+#             */
-/*   Updated: 2023/07/17 17:25:06 by fcaetano         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:44:53 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	transform_map_int(t_game *game)
 	i = -1;
 	game->map.mtx_int = malloc_matrix(game->map.rows, game->map.cols);
 	if (!game->map.mtx_int)
-		exit_game("error: malloc failed", game);
+		exit_game("Malloc failed in trasform_map.c, line 61.", game);
 	populate_matrix(game);
 	while (++i < game->map.rows)
 	{

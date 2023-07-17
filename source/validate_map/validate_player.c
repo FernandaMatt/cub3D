@@ -6,7 +6,7 @@
 /*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:45:32 by gusousa           #+#    #+#             */
-/*   Updated: 2023/07/04 12:25:53 by fcaetano         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:49:36 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,5 @@ void	validate_player(t_game *game)
 		}
 	}
 	if (qtd_player != 1)
-		exit_game("Incorrect number of player", game);
+		exit_game("Incorrect number of players.", game);
 }

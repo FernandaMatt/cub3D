@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_middle.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gustavosousa <gustavosousa@student.42.f    +#+  +:+       +#+        */
+/*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:45:32 by gusousa           #+#    #+#             */
-/*   Updated: 2023/06/07 12:45:31 by gustavosous      ###   ########.fr       */
+/*   Updated: 2023/07/17 17:49:17 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	look_around(t_game *game, int i, int j)
 		|| !is_valid_up_down(next_line, j)
 		|| !is_valid_left_right(previous_char)
 		|| !is_valid_left_right(next_char))
-		exit_game("There's some hole in the middle map", game);
+		exit_game("Invalid map. Holes in the middle of the map.", game);
 }
 
 void	validate_middle(t_game *game)

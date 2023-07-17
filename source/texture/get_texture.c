@@ -6,7 +6,7 @@
 /*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:45:32 by gusousa           #+#    #+#             */
-/*   Updated: 2023/07/03 11:51:48 by fcaetano         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:46:21 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	get_texture(t_game *game, char *line)
 	char	*arg;
 
 	if (ft_count_words(line, ' ') != 2)
-		exit_game("Incorrect number of information", game);
+		exit_game("Incorrect number of information in .cub file.", game);
 	line_mtx = ft_split(line, ' ');
 	cardinal = line_mtx[0];
 	arg = line_mtx[1];

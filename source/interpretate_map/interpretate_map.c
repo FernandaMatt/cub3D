@@ -6,7 +6,7 @@
 /*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:45:32 by gusousa           #+#    #+#             */
-/*   Updated: 2023/07/17 17:19:51 by fcaetano         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:45:46 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	interpretate_map(t_game *game, char *file_path)
 			if (line)
 				free(line);
 			close(fd);
-			exit_game("Empty line or false info. Invalid map entry.", game);
+			exit_game("Invalid map entry. Empty line or false info.", game);
 		}
 		free(line);
 		line = get_nl(fd);

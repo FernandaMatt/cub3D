@@ -6,7 +6,7 @@
 /*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:45:32 by gusousa           #+#    #+#             */
-/*   Updated: 2023/07/17 10:14:29 by fcaetano         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:46:52 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	validate_border(t_game *game)
 		|| !validate_right(game))
 	{
 		printf("It's just another brick in the wall...\n");
-		exit_game("Error: Map needs to be surrounded by walls.", game);
+		exit_game("Map needs to be surrounded by walls.", game);
 	}
 }

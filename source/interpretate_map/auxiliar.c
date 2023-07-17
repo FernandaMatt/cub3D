@@ -6,7 +6,7 @@
 /*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:45:32 by gusousa           #+#    #+#             */
-/*   Updated: 2023/07/17 17:20:14 by fcaetano         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:40:21 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ int	open_file(char *file_path, t_game *game)
 
 	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
-		exit_game("File non-existed or non-permission granted", game);
+		exit_game("File not found or you don't have permissions.", game);
 	return (fd);
 }

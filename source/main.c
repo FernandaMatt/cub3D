@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parnaldo <parnaldo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:45:32 by gusousa           #+#    #+#             */
-/*   Updated: 2023/07/06 14:35:32 by parnaldo         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:52:21 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		if (!check_map_extension(argv[1]))
-			ft_putendl_fd("Error: map file extension. `.cub´ expected", 1);
+			ft_putendl_fd("Error.\nMap file extension. `.cub´ expected.", 1);
 		else
 		{
 			setup(&game);
 			interpretate_map(&game, argv[1]);
 			if (!has_all_information(&game))
-				exit_game("Missing information", &game);
+				exit_game("Incomplete data in the .cub file.", &game);
 			validate_map(&game);
 			transform_map_int(&game);
 			render_game(&game);

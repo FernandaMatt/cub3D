@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_color.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parnaldo <parnaldo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:45:32 by gusousa           #+#    #+#             */
-/*   Updated: 2023/07/05 19:20:09 by parnaldo         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:45:23 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	is_valid_number(char **mtx, int r, int g, int b)
 void	invalid_rgb(char **mtx, t_game *game)
 {
 	free_matrix_chr(mtx);
-	exit_game("Number rgb not valid", game);
+	exit_game("Invalid RGB number.", game);
 }
 
 int	ft_count_line(char **mtx)
@@ -50,7 +50,7 @@ int	translate_rgb(char *rgb, t_game *game)
 	char	**lonely;
 
 	if (ft_count_words(rgb, ',') != 3)
-		exit_game("Number rgb not valid", game);
+		exit_game("Invalid RGB number.", game);
 	lonely = ft_split(rgb, ',');
 	r = ft_atoi(lonely[0]);
 	g = ft_atoi(lonely[1]);

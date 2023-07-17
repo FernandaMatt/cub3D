@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_game_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parnaldo <parnaldo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 09:37:54 by fcaetano          #+#    #+#             */
-/*   Updated: 2023/07/06 14:03:30 by parnaldo         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:43:29 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,14 +92,14 @@ void	create_window_mlx(t_game *game)
 {
 	game->img.win = mlx_new_window(game->img.ptr, LENGHT, HEIGHT, "cub3D");
 	if (game->img.win == NULL)
-		exit_game("error: mlx window failed", game);
+		exit_game("Mlx window failed.", game);
 	game->img.img = mlx_new_image(game->img.ptr, LENGHT, HEIGHT);
 	if (game->img.img == NULL)
-		exit_game("error: mlx image failed", game);
+		exit_game("Mlx image failed.", game);
 	game->img.addr = mlx_get_data_addr(game->img.img, &game->img.bpp,
 			&game->img.line_len, &game->img.endian);
 	if (game->img.addr == NULL)
-		exit_game("error: mlx address failed", game);
+		exit_game("Mlx address failed.", game);
 }
 
 void	render_game(t_game *game)

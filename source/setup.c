@@ -6,7 +6,7 @@
 /*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:45:32 by gusousa           #+#    #+#             */
-/*   Updated: 2023/06/24 11:48:20 by gde-jesu         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:43:58 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	init_mlx(t_game *game)
 {
 	game->img.ptr = mlx_init();
 	if (game->img.ptr == NULL)
-		exit_game("error: mlx init failed", game);
+		exit_game("Initialization of minilibx failed.", game);
 }
 
 void	init_var_raycasting(t_game *game)
