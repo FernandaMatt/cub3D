@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_border.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gustavosousa <gustavosousa@student.42.f    +#+  +:+       +#+        */
+/*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 14:45:32 by gusousa           #+#    #+#             */
-/*   Updated: 2023/06/07 12:42:01 by gustavosous      ###   ########.fr       */
+/*   Updated: 2023/07/17 10:14:29 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,8 @@ void	validate_border(t_game *game)
 		|| !validate_down(game)
 		|| !validate_left(game)
 		|| !validate_right(game))
-		exit_game("it's just another brick in the wall", game);
+	{
+		printf("It's just another brick in the wall...\n");
+		exit_game("Error: Map needs to be surrounded by walls.", game);
+	}
 }

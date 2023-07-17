@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parnaldo <parnaldo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 19:13:55 by parnaldo          #+#    #+#             */
-/*   Updated: 2023/07/05 19:14:06 by parnaldo         ###   ########.fr       */
+/*   Updated: 2023/07/17 10:51:29 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,12 @@ void	exit_game(char *message, t_game *game)
 {
 	if (message)
 		ft_putendl_fd(message, 2);
-	free_map(game);
-	free_texture(game->texture);
-	mlx_destroy_display(game->img.ptr);
-	free(game->img.ptr);
-	exit(0);
+	if (game)
+	{
+		free_map(game);
+		free_texture(game->texture);
+		mlx_destroy_display(game->img.ptr);
+		free(game->img.ptr);
+		exit(0);
+	}
 }
