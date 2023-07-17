@@ -73,9 +73,10 @@ void	interpretate_map(t_game *game, char *file_path)
 	{
 		if (!is_empty_line(line))
 			status = interpretate_line(game, line);
-		else if (game->map.mtx || !status)
+		if ((game->map.mtx && is_empty_line(line)) || !status)
 		{
-			free(line);
+			if (line)
+				free(line);
 			close(fd);
 			exit_game("Empty line or false info. Invalid map entry.", game);
 		}
