@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parnaldo <parnaldo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 09:39:47 by fcaetano          #+#    #+#             */
-/*   Updated: 2023/07/06 11:30:51 by parnaldo         ###   ########.fr       */
+/*   Updated: 2023/07/17 09:26:46 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-void	draw_x_line(t_game *game, t_ray_info *ray, int line_height, int x)
+void	draw_x_l(t_game *game, t_ray_info *ray, int l_height, int x)
 {
 	int		draw_limits[2];
 	double	step_tex;
@@ -22,10 +22,10 @@ void	draw_x_line(t_game *game, t_ray_info *ray, int line_height, int x)
 
 	tex = def_tex(game, ray);
 	tex_hit_x = calc_tex_hit_x(game, ray, tex);
-	draw_limits[0] = calc_lowest_pixel(line_height);
-	draw_limits[1] = calc_highest_pixel(line_height);
-	step_tex = 1.0 * tex.height / line_height;
-	tex_pos = (draw_limits[0] - HEIGHT / 2 + line_height / 2) * step_tex;
+	draw_limits[0] = calc_lowest_pixel(l_height);
+	draw_limits[1] = calc_highest_pixel(l_height);
+	step_tex = 1.0 * tex.height / l_height;
+	tex_pos = (draw_limits[0] - HEIGHT / 2 + l_height / 2) * step_tex;
 	while (draw_limits[0] <= draw_limits[1])
 	{
 		tex_pos += step_tex;

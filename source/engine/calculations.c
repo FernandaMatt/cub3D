@@ -6,7 +6,7 @@
 /*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 09:39:38 by fcaetano          #+#    #+#             */
-/*   Updated: 2023/06/27 09:39:39 by fcaetano         ###   ########.fr       */
+/*   Updated: 2023/07/17 09:26:46 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,11 @@ void	calc_perp_wall_dist(t_game *game, t_ray_info *ray)
 		ray->perp_wall_dist = (ray->side.y - ray->delta.y);
 }
 
-int	calc_lowest_pixel(int line_height)
+int	calc_lowest_pixel(int l_height)
 {
 	int	draw_start;
 
-	draw_start = -line_height / 2 + HEIGHT / 2;
+	draw_start = -l_height / 2 + HEIGHT / 2;
 	if (draw_start < 0)
 		draw_start = 0;
 	return (draw_start);

@@ -6,7 +6,7 @@
 /*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 09:40:09 by fcaetano          #+#    #+#             */
-/*   Updated: 2023/06/27 09:40:51 by fcaetano         ###   ########.fr       */
+/*   Updated: 2023/07/17 09:26:46 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_img	def_tex(t_game *game, t_ray_info *ray)
 void	raycast(t_game *game)
 {
 	int			x;
-	int			line_height;
+	int			l_height;
 	t_ray_info	ray;
 
 	x = 0;
@@ -49,8 +49,8 @@ void	raycast(t_game *game)
 	{
 		ray.dir = calc_ray_dir(x, game);
 		calc_perp_wall_dist(game, &ray);
-		line_height = (int)(HEIGHT / ray.perp_wall_dist);
-		draw_x_line(game, &ray, line_height, x);
+		l_height = (int)(HEIGHT / ray.perp_wall_dist);
+		draw_x_l(game, &ray, l_height, x);
 		x++;
 	}
 }

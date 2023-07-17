@@ -1,5 +1,17 @@
-#ifndef STRUCT_H
-# define STRUCT_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   structs.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/17 09:28:53 by fcaetano          #+#    #+#             */
+/*   Updated: 2023/07/17 09:29:09 by fcaetano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef STRUCTS_H
+# define STRUCTS_H
 
 # include "constants.h"
 
@@ -46,7 +58,7 @@ typedef struct s_key_state
 	int	d_is_press;
 	int	la_is_press;
 	int	ra_is_press;
-	int m_is_press;
+	int	m_is_press;
 }	t_key_state;
 
 typedef struct s_int_vector

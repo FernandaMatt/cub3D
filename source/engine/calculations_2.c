@@ -6,17 +6,17 @@
 /*   By: fcaetano <fcaetano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 09:39:55 by fcaetano          #+#    #+#             */
-/*   Updated: 2023/06/27 09:39:56 by fcaetano         ###   ########.fr       */
+/*   Updated: 2023/07/17 09:26:46 by fcaetano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-int	calc_highest_pixel(int line_height)
+int	calc_highest_pixel(int l_height)
 {
 	int	draw_end;
 
-	draw_end = line_height / 2 + HEIGHT / 2;
+	draw_end = l_height / 2 + HEIGHT / 2;
 	if (draw_end >= HEIGHT)
 		draw_end = HEIGHT - 1;
 	return (draw_end);
