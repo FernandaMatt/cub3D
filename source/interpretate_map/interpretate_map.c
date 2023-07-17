@@ -26,15 +26,22 @@ void	get_max_col(t_game *game, char *line)
 ** Decide if the line is a texture or a color or a map.
 ** Call the right function to interpretate the line.
 */
-void	interpretate_line(t_game *game, char *line_pre)
+int	interpretate_line(t_game *game, char *line_pre)
 {
 	char	*line2;
 	char	*line;
 
 	line2 = ft_strtrim(line_pre, "\n");
 	line = ft_strtrim(line2, " ");
+	free(line2);
 	if (is_xpm(line))
-		get_texture(game, line);
+	{
+		if (!get_texture(game, line))
+		{
+			free(line);
+			return (0);
+		}
+	}
 	else if (is_color(line))
 		get_color(game, line);
 	else
@@ -44,7 +51,7 @@ void	interpretate_line(t_game *game, char *line_pre)
 		get_max_col(game, line);
 	}
 	free(line);
-	free(line2);
+	return (1);
 }
 
 /*
@@ -57,14 +64,16 @@ void	interpretate_map(t_game *game, char *file_path)
 {
 	char	*line;
 	int		fd;
+	int		status;
 
+	status = 1;
 	fd = open_file(file_path);
 	line = get_nl(fd);
 	while (line)
 	{
 		if (!is_empty_line(line))
-			interpretate_line(game, line);
-		else if (game->map.mtx)
+			status = interpretate_line(game, line);
+		else if (game->map.mtx || !status)
 		{
 			free(line);
 			close(fd);
@@ -72,11 +81,6 @@ void	interpretate_map(t_game *game, char *file_path)
 		}
 		free(line);
 		line = get_nl(fd);
-	}
-	if (!has_all_information(game))
-	{
-		close (fd);
-		exit_game("Missing information", game);
 	}
 	close(fd);
 }

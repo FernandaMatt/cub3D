@@ -22,12 +22,41 @@ t_img	get_argure(char *path, t_game *game)
 			&texture.width,
 			&texture.height);
 	if (!texture.img)
-		exit_game("Invalid texture path", game);
+		return (texture);
 	texture.addr = mlx_get_data_addr(texture.img,
 			&texture.bpp,
 			&texture.line_len,
 			&texture.endian);
 	return (texture);
+}
+
+int	load_texture(char *arg, char *cardinal, t_game *game)
+{
+	if (is_north(cardinal, game))
+	{
+		game->texture.north = get_argure(arg, game);
+		if (!game->texture.north.img)
+			return (0);
+	}
+	else if (is_south(cardinal, game))
+	{
+		game->texture.south = get_argure(arg, game);
+		if (!game->texture.south.img)
+			return (0);
+	}
+	else if (is_west(cardinal, game))
+	{
+		game->texture.west = get_argure(arg, game);
+		if (!game->texture.west.img)
+			return (0);
+	}
+	else if (is_east(cardinal, game))
+	{
+		game->texture.east = get_argure(arg, game);
+		if (!game->texture.east.img)
+			return (0);
+	}
+	return (1);
 }
 
 int	get_texture(t_game *game, char *line)
@@ -41,15 +70,7 @@ int	get_texture(t_game *game, char *line)
 	line_mtx = ft_split(line, ' ');
 	cardinal = line_mtx[0];
 	arg = line_mtx[1];
-	if (is_north(cardinal, game))
-		game->texture.north = get_argure(arg, game);
-	else if (is_south(cardinal, game))
-		game->texture.south = get_argure(arg, game);
-	else if (is_west(cardinal, game))
-		game->texture.west = get_argure(arg, game);
-	else if (is_east(cardinal, game))
-		game->texture.east = get_argure(arg, game);
-	else
+	if (!load_texture(arg, cardinal, game))
 	{
 		free_matrix_chr(line_mtx);
 		return (0);

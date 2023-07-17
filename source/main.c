@@ -41,6 +41,8 @@ int	main(int argc, char **argv)
 		{
 			setup(&game);
 			interpretate_map(&game, argv[1]);
+			if (!has_all_information(&game))
+				exit_game("Missing information", &game);
 			validate_map(&game);
 			transform_map_int(&game);
 			render_game(&game);

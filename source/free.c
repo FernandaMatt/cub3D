@@ -20,13 +20,13 @@ void	free_map(t_game *game)
 
 void	free_texture(t_texture texture)
 {
-	if (texture.north.ptr)
+	if (texture.north.ptr && texture.north.img)
 		mlx_destroy_image(texture.north.ptr, texture.north.img);
-	if (texture.south.ptr)
+	if (texture.south.ptr && texture.south.img)
 		mlx_destroy_image(texture.south.ptr, texture.south.img);
-	if (texture.east.ptr)
+	if (texture.east.ptr && texture.east.img)
 		mlx_destroy_image(texture.east.ptr, texture.east.img);
-	if (texture.west.ptr)
+	if (texture.west.ptr && texture.west.img)
 		mlx_destroy_image(texture.west.ptr, texture.west.img);
 }
 
