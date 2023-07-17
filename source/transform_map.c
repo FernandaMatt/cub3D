@@ -38,6 +38,20 @@ int	**malloc_matrix(int height, int width)
 	return (mtx);
 }
 
+void populate_matrix(t_game *game)
+{
+	int i;
+	int j;
+
+	i = -1;
+	while (++i < game->map.rows)
+	{
+		j = -1;
+		while (++j < game->map.rows)
+			game->map.mtx_int[i][j] = 1;
+	}
+}
+
 void	transform_map_int(t_game *game)
 {
 	int	i;
@@ -47,10 +61,11 @@ void	transform_map_int(t_game *game)
 	game->map.mtx_int = malloc_matrix(game->map.rows, game->map.cols);
 	if (!game->map.mtx_int)
 		exit_game("error: malloc failed", game);
+	populate_matrix(game);
 	while (++i < game->map.rows)
 	{
 		j = -1;
-		while (++j < game->map.cols)
+		while (++j < (int)ft_strlen(game->map.mtx[i]))
 			put_value(game, i, j);
 	}
 }

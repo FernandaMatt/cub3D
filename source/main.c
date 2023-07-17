@@ -12,23 +12,6 @@
 
 #include "../include/cub3d.h"
 
-void	print_mtx(t_game *game)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (++i < game->map.rows)
-	{
-		j = -1;
-		while (++j < game->map.cols)
-		{
-			printf("%d", game->map.mtx_int[i][j]);
-		}
-		printf("\n");
-	}
-}
-
 int	main(int argc, char **argv)
 {
 	t_game	game;
